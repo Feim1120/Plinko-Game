@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #1a2a44;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.sidebar {
+    width: 300px;
+    background: #2a3a5a;
+    padding: 20px;
+    border-right: 1px solid #3a4a6a;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.tabs {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.tab {
+    flex: 1;
+    padding: 10px;
+    background: #3a4a6a;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.tab.active {
+    background: #4a5a7a;
+}
+
+.tab-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input, select {
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: #3a4a6a;
+    color: white;
+    transition: background 0.3s;
+}
+
+input:hover, select:hover {
+    background: #4a5a7a;
+}
+
+#bet-input, #auto-bet-input, #auto-ball-count {
+    width: 100%;
+    text-align: center;
+}
+
+.bet-section, .auto-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bet-section button {
+    padding: 5px;
+    background: #6c757d;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.bet-section button:hover {
+    background: #7c859d;
+}
+
+#drop-ball, #start-auto, #stop-auto {
+    padding: 10px;
+    background: #34c759; /* Neues, helleres Grün */
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+#stop-auto {
+    background: #dc3545;
+}
+
+#drop-ball:hover, #start-auto:hover {
+    background: #4ad66d; /* Noch helleres Grün beim Hover */
+}
+
+#stop-auto:hover {
+    background: #ec4545;
+}
+
+.game-area {
+    flex: 1;
+    position: relative;
+    background: #1a2a44;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+#plinko-board {
+    width: 100%;
+    height: 85%;
+    position: relative;
+}
+
+.pin {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.3);
+    border: 1px solid #d0d0d0;
+}
+
+#multipliers {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #2a3a5a;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.multiplier {
+    font-size: 0.9em;
+    padding: 4px 6px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: bold;
+    text-align: center;
+    min-width: 30px;
+}
+
+.multiplier.red { background: #ff3333; border: 1px solid #cc0000; }
+.multiplier.orange { background: #ff8c00; border: 1px solid #cc7000; }
+.multiplier.yellow { background: #ffff00; color: #000; border: 1px solid #cccc00; }
+
+.multiplier.highlight {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+.multiplier.bounce {
+    animation: bounce 0.3s ease-in-out;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(0); }
+}
+
+.ball {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #ff3333, #cc0000);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+    border: 1px solid #cc0000;
+    display: none;
+}
+
+.balance {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.2em;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.result {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    z-index: 10;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}

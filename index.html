@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plinko Spiel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('manual')">Manuell</button>
+                <button class="tab" onclick="switchTab('auto')">Automatisch</button>
+            </div>
+            <div class="tab-content" id="manual">
+                <div class="bet-section">
+                    <label>Wetteinsatz</label>
+                    <input type="number" id="bet-input" value="1.00" step="0.01" min="0.01">
+                    <button id="halve-bet">½</button>
+                    <button id="double-bet">2x</button>
+                </div>
+                <div class="risk-section">
+                    <label>Risiko</label>
+                    <select id="risk-select">
+                        <option value="low">Niedrig</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">Hoch</option>
+                    </select>
+                </div>
+                <div class="rows-section">
+                    <label>Reihen</label>
+                    <select id="rows-select">
+                        <option value="8">8</option>
+                        <option value="12">12</option>
+                        <option value="14" selected>14</option>
+                    </select>
+                </div>
+                <button id="drop-ball">Wetten</button>
+            </div>
+            <div class="tab-content" id="auto" style="display: none;">
+                <div class="bet-section">
+                    <label>Wetteinsatz</label>
+                    <input type="number" id="auto-bet-input" value="1.00" step="0.01" min="0.01">
+                    <button id="auto-halve-bet">½</button>
+                    <button id="auto-double-bet">2x</button>
+                </div>
+                <div class="risk-section">
+                    <label>Risiko</label>
+                    <select id="auto-risk-select">
+                        <option value="low">Niedrig</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">Hoch</option>
+                    </select>
+                </div>
+                <div class="rows-section">
+                    <label>Reihen</label>
+                    <select id="auto-rows-select">
+                        <option value="8">8</option>
+                        <option value="12">12</option>
+                        <option value="14" selected>14</option>
+                    </select>
+                </div>
+                <div class="auto-section">
+                    <label>Anzahl der Bälle</label>
+                    <input type="number" id="auto-ball-count" value="1" min="1" max="100">
+                </div>
+                <button id="start-auto">Start</button>
+                <button id="stop-auto" style="display: none;">Stop</button>
+            </div>
+        </div>
+        <div class="game-area">
+            <div id="plinko-board"></div>
+            <div id="multipliers"></div>
+        </div>
+    </div>
+    <div class="balance" id="balance-display">Guthaben: <span id="balance">1000.00€</span></div>
+    <div class="result" id="result"></div>
+    <audio id="dropSound" src="drop-sound.mp3"></audio>
+    <audio id="pingSound" src="ping-sound.mp3"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
